@@ -1,9 +1,9 @@
 import time
 import random
 
-# -------------------------------
-# GLOBAL STORAGE (SIMULATES DB)
-# -------------------------------
+
+
+
 offline_storage = []
 processed_transactions = set()
 logs = []
@@ -11,9 +11,7 @@ logs = []
 network_available = True   # Change this to simulate network
 
 
-# -------------------------------
-# UTIL FUNCTIONS
-# -------------------------------
+
 def generate_transaction_id():
     return "TXN" + str(int(time.time() * 1000)) + str(random.randint(100, 999))
 
@@ -27,9 +25,7 @@ def is_network_available():
     return network_available
 
 
-# -------------------------------
-# VALIDATION MODULE
-# -------------------------------
+
 def validate_card(card_number):
     return len(card_number) == 16 and card_number.isdigit()
 
@@ -42,26 +38,20 @@ def is_duplicate(txn_id):
     return txn_id in processed_transactions
 
 
-# -------------------------------
-# OFFLINE STORAGE MODULE
-# -------------------------------
+
 def store_offline(transaction):
     offline_storage.append(transaction)
     log_event(f"Stored OFFLINE: {transaction['id']}")
 
 
-# -------------------------------
-# BANK SERVER SIMULATION
-# -------------------------------
+
 def send_to_bank(transaction):
     print(f"Processing with bank: {transaction['id']}")
     time.sleep(1)
     return True  # always success for demo
 
 
-# -------------------------------
-# TRANSACTION PROCESSING
-# -------------------------------
+
 def process_transaction():
     global network_available
 
@@ -102,9 +92,7 @@ def process_transaction():
         store_offline(transaction)
 
 
-# -------------------------------
-# SYNCHRONIZATION MODULE
-# -------------------------------
+
 def sync_transactions():
     global offline_storage
 
@@ -133,9 +121,7 @@ def sync_transactions():
     offline_storage = remaining
 
 
-# -------------------------------
-# ADMIN / VIEW MODULE
-# -------------------------------
+
 def view_offline_transactions():
     print("\n--- Offline Transactions ---")
     for txn in offline_storage:
@@ -148,9 +134,7 @@ def view_logs():
         print(log)
 
 
-# -------------------------------
-# MAIN MENU (POS SYSTEM)
-# -------------------------------
+
 def main():
     global network_available
 
@@ -189,8 +173,6 @@ def main():
             print("Invalid choice!")
 
 
-# -------------------------------
-# RUN PROGRAM
-# -------------------------------
+
 if __name__ == "__main__":
     main()
