@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Offline Transaction Recovery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Merchant Dashboard</h1>
+
+    <div class="top-bar">
+      <p><strong>User:</strong> <span id="userName"></span></p>
+      <div>
+        <label>Network Mode:</label>
+        <select id="networkMode">
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Create Transaction</h2>
+      <input type="text" id="cardholderName" placeholder="Cardholder Name" />
+      <input type="text" id="maskedCard" placeholder="Masked Card Number (e.g. XXXX-XXXX-XXXX-1234)" />
+      <input type="number" id="amount" placeholder="Amount" />
+      <input type="text" id="reference" placeholder="Reference Number" />
+      <button onclick="createTransaction()">Submit Transaction</button>
+    </div>
+
+    <div class="card">
+      <h2>Synchronization</h2>
+      <button onclick="syncTransactions()">Sync Offline Transactions</button>
+    </div>
+
+    <div class="card">
+      <h2>Transaction History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Merchant</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Mode</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="transactionTable"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Audit Logs</h2>
+      <ul id="logList"></ul>
+    </div>
+
+    <p id="dashboardMessage"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

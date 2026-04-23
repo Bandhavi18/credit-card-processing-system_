@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Offline Transaction Recovery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container auth-container">
+    <h1>Offline Transaction Recovery</h1>
+
+    <div class="card">
+      <h2>Register</h2>
+      <input type="text" id="regName" placeholder="Full Name" />
+      <input type="email" id="regEmail" placeholder="Email" />
+      <input type="password" id="regPassword" placeholder="Password" />
+      <button onclick="registerUser()">Register</button>
+    </div>
+
+    <div class="card">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button onclick="loginUser()">Login</button>
+    </div>
+
+    <p id="message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
